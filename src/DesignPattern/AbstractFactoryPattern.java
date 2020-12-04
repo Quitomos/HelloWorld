@@ -15,6 +15,7 @@ public class AbstractFactoryPattern {
         AbstractProductA pa = f.getProductA();
         AbstractProductB pb = f.getProductB();
         pa.productAMethod();
+
         pb.productBMethod();
     }
 }
