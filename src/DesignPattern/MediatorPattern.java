@@ -21,7 +21,7 @@ public class MediatorPattern {
 
 abstract class Mediator {
     protected List<Colleague> ml = new ArrayList<>();
-
+·
     public void add(Colleague c) {
         ml.add(c);
     }
