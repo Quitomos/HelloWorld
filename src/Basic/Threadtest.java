@@ -3,7 +3,10 @@ package Basic;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.locks.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ExecutorService;
 
 public class Threadtest {
     public static void main(String[] args) {
@@ -25,7 +28,6 @@ public class Threadtest {
                 getKey(3, mq, pw);
             }
         };
-
         Thread disp = new Thread() {
             public void run() {
                 while (true) {
@@ -60,6 +62,7 @@ public class Threadtest {
         }
         for (char c = 'a'; c <= 'z'; ++c) {
             getKey(n, cur + c, mq, key);
+
         }
     }
 

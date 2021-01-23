@@ -17,5 +17,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="envers" level="project" />
+    <orderEntry type="library" name="jpa-metamodel-generator" level="project" />
   </component>
 </module>

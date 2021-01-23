@@ -30,4 +30,12 @@
         <filter-name>FirstFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    
+    <listener>
+        <listener-class>com.quitomos.j2ee2.Listener.ContextListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>com.quitomos.j2ee2.Listener.ContextAttributeListener</listener-class>
+    </listener>
 </web-app>

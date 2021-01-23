@@ -17,5 +17,6 @@ public class HiServlet extends HttpServlet {
         pw.println("<html><body>");
         pw.println("<h1>" + "Hi, Servlet" + "</h1>");
         pw.println("</body></html>");
+
     }
 }
