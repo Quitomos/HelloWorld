@@ -31,7 +31,6 @@ public class ThreadTest2 {
         public void run() {
             synchronized (ThreadTest2.this) {
                 ThreadTest2.this.j--;
-                Thread.State
             }
         }
     }

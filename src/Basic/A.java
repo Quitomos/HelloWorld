@@ -9,6 +9,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.locks.ReentrantLock;
 
+@AConfig(a = 1)
 public class A implements Comparable {
     int a;
 
@@ -37,33 +38,35 @@ public class A implements Comparable {
     }
 
     public static void main(String[] args) throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
-        Class c = Class.forName("Basic.B");
-        B b = new B();
-        Field f = c.getDeclaredField("c");
-        f.setAccessible(true);
-        f.set(b, 1);
-        c.getConstructor().newInstance();
-        c.getConstructor();
-        List<? super A> ml = new ArrayList<>();
-        ml.add(new A());
-        List<? extends A> ml2 = new ArrayList<>();
-        A a = new B();
-        String s1 = "abc";
-        String s2 = "abc";
-        String s3 = new String("abc");
-        System.out.println(s1 == s2);
-        System.out.println(s1 == s3);
-        System.out.println(s1.equals(s3));
-
-        Map<Integer, Integer> mm = new HashMap<>();
-        for (int i = 0; i < 5; ++i) {
-            mm.put(i, i);
-        }
-        Iterator<Map.Entry<Integer, Integer>> it = mm.entrySet().iterator();
-        while (it.hasNext()) {
-            var e = it.next();
-            mm.remove(e.getKey());
-        }
+//        Class c = Class.forName("Basic.B");
+//        B b = new B();
+//        Field f = c.getDeclaredField("c");
+//        f.setAccessible(true);
+//        f.set(b, 1);
+//        c.getConstructor().newInstance();
+//        c.getConstructor();
+//        List<? super A> ml = new ArrayList<>();
+//        ml.add(new A());
+//        List<? extends A> ml2 = new ArrayList<>();
+//        A a = new B();
+//        String s1 = "abc";
+//        String s2 = "abc";
+//        String s3 = new String("abc");
+//        System.out.println(s1 == s2);
+//        System.out.println(s1 == s3);
+//        System.out.println(s1.equals(s3));
+//
+//        Map<Integer, Integer> mm = new HashMap<>();
+//        for (int i = 0; i < 5; ++i) {
+//            mm.put(i, i);
+//        }
+//        Iterator<Map.Entry<Integer, Integer>> it = mm.entrySet().iterator();
+//        while (it.hasNext()) {
+//            var e = it.next();
+//            mm.remove(e.getKey());
+//        }
+        AConfig aConfig = A.class.getAnnotation(AConfig.class);
+        System.out.println(aConfig.a());
     }
 }
 
@@ -85,7 +88,7 @@ class B extends A {
     }
     void f2() {
         System.out.println("B");
-        d += 2;
+//        d += 2;
     }
 
 
@@ -95,7 +98,7 @@ class B extends A {
             B.this.c = 1;
             System.out.println(c);
         }
-        ReentrantLock
+
     }
 }
 
