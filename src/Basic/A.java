@@ -7,7 +7,9 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
+import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 @AConfig(a = 1)
 public class A implements Comparable {
@@ -65,8 +67,8 @@ public class A implements Comparable {
 //            var e = it.next();
 //            mm.remove(e.getKey());
 //        }
-        AConfig aConfig = A.class.getAnnotation(AConfig.class);
-        System.out.println(aConfig.a());
+//        AConfig aConfig = A.class.getAnnotation(AConfig.class);
+//        System.out.println(aConfig.a());
     }
 }
 
