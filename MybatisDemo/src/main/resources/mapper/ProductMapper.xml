@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pojo">
+    <resultMap id="productBean" type="Product">
+        <id column="pid" property="id"/>
+        <result column="pname" property="name"/>
+        <result column="price" property="price"/>
+
+        <association property="category" javaType="Category">
+            <id column="cid" property="id"/>
+            <result column="cname" property="name"/>
+        </association>
+    </resultMap>
+
+    <select id="listProduct" resultMap="productBean">
+        select c.id as cid,
+               p.id as pid,
+               c.name as cname,
+               p.name as pname,
+               p.price
+        from category c right join
+    <if test="name!=null">
+        (select * from product
+        where product.name like concat('%', #{name}, '%')) as p
+    </if>
+    <if test="name==null">
+        product p
+    </if>
+        on c.id = p.cid
+    </select>
+
+    <select id="getProduct" resultMap="productBean" parameterType="int">
+        select c.id as cid,
+               p.id as pid,
+               c.name as cname,
+               p.name as pname,
+               p.price
+        from category c
+            right join product p
+                on c.id = p.cid
+                       and p.id = #{0}
+    </select>
+</mapper>
