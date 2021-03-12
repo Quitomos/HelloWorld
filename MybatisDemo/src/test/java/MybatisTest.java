@@ -1,3 +1,4 @@
+import mapperr.CategoryMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -31,14 +32,14 @@ public class MybatisTest {
 //        Category category = session.selectOne("getCategory", 1);
 //        category.setName("category1modified");
 //        session.update("updateCategory", category);
-        Map<String, Object> params = new HashMap<>();
-        params.put("id", 1);
-        params.put("name", "1");
+//        Map<String, Object> params = new HashMap<>();
+//        params.put("id", 1);
+//        params.put("name", "1");
 //        List<Category> categories = session.selectList("listCategoryWithProducts");
-        List<Product> products = session.selectList("listProduct");
-        for (Product product: products) {
-            System.out.println(product.getName() + ":" + (product.getCategory() == null? null : product.getCategory().getName()));
-        }
+//        List<Product> products = session.selectList("listProduct");
+//        for (Product product: products) {
+//            System.out.println(product.getName() + ":" + (product.getCategory() == null? null : product.getCategory().getName()));
+//        }
 //        for (Category c: categories) {
 //            System.out.println(c.getName());
 //            List<Product> products = c.getProducts();
@@ -54,6 +55,12 @@ public class MybatisTest {
 //                System.out.println("\t" + orderItem.getProduct().getName());
 //            }
 //        }
+        CategoryMapper mapper = session.getMapper(CategoryMapper.class);
+
+        Category category = new Category();
+        category.setName("newCategory");
+        mapper.add(category);
+
 
         session.commit();
         session.close();

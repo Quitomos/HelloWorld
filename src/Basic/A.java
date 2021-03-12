@@ -69,6 +69,7 @@ public class A implements Comparable {
 //        }
 //        AConfig aConfig = A.class.getAnnotation(AConfig.class);
 //        System.out.println(aConfig.a());
+
     }
 }
 
