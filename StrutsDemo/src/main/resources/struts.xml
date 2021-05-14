@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="basicStruts" extends="struts-default">
+
+
+
+<!--        <action name="showProduct"-->
+<!--                class="action.ProductAction"-->
+<!--                method="show">-->
+<!--            <result name="show">show.jsp</result>-->
+<!--            <result name="show1">index.jsp</result>-->
+<!--        </action>-->
+        <interceptors>
+            <interceptor name="dateInterceptor" class="interceptor.DateInterceptor"></interceptor>
+        </interceptors>
+        <action name="index">
+            <result>index.jsp</result>
+        </action>
+        <action name="*Product"
+                class="action.ProductAction"
+                method="{1}">
+            <interceptor-ref name="dateInterceptor"></interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result name="show">show.jsp</result>
+            <allowed-methods>add,show</allowed-methods>
+        </action>
+        <action name="addPage"
+                class="action.ProductAction"
+                method="addPage">
+            <result name="addPage" type="redirect">addProduct.jsp?name=${name}</result>
+        </action>
+
+<!--        <action name="upload"-->
+<!--                class="action.UploadAction"-->
+<!--                method="upload">-->
+<!--            <result name="success">success.jsp</result>-->
+<!--        </action>-->
+    </package>
+
+</struts>
