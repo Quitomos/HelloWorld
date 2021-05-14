@@ -1,7 +1,7 @@
 package Basic;
 
 public interface mortal {
-    public void die();
+    void die();
 }
 
 interface mortal2 {

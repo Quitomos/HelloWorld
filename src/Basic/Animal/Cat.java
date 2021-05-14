@@ -1,7 +1,10 @@
 package Basic.Animal;
 
+import Basic.A;
+
 public class Cat extends Animal implements Pet {
     private String name;
+
 
     public Cat(String _name) {
         super(4);
