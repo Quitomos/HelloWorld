@@ -6,8 +6,8 @@ spring:
       label: master
       server:
         git:
-          uri: https://github.com/Quitomos/HelloWorld/
-          searchPaths: spring-cloud-demo/config
+          uri: https://github.com/Quitomos/HelloWorld.git
+          searchPaths: spring-cloud-demo/configs
 eureka:
   client:
     serviceUrl:
